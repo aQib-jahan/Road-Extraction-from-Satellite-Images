@@ -45,6 +45,7 @@ im = bwmorph(im, 'majority');
 se=strel('square',2);
 im1=imclose(im,se);
 figure,imshow(im1);
+imwrite(im1,"Extracted.jpg")
 
 BW = bwmorph(im,'remove');
 figure,imshow(BW);
@@ -71,5 +72,6 @@ H = vision.AlphaBlender;
 J = im2single(J);
 BW1 = im2single(BW1);
 Y = step(H,J,BW1);
+imwrite(Y,"Overlayed.jpg")
 figure,imshow(Y)
 title('Overlay on grayscale image');
